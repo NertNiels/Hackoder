@@ -4,6 +4,25 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.1/p5.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.1/p5.dom.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.1/p5.sound.js"></script>
+    <script language=javascript>
+
+
+        function cancelBack()
+        {
+            if ((event.keyCode == 8 ||
+               (event.keyCode == 37 && event.altKey) ||
+               (event.keyCode == 39 && event.altKey))
+                &&
+               (event.srcElement.form == null || event.srcElement.isTextEdit == false)
+              )
+            {
+                event.cancelBubble = true;
+                event.returnValue = false;
+            }
+        }
+
+
+    </script>
     <style type="text/css">
       body {
         margin: 0;
@@ -13,7 +32,8 @@
 
   </head>
 
-  <body>
-    <script src="sketch.js"> </script>
+  <body onkeydown="cancelBack();">
+
+    <script src="sketch.js"></script>
   </body>
 </html>
